@@ -13,8 +13,8 @@ export default function App() {
   const [gameIsOver, setGameIsOver] = useState(false);
 
   const [fontsLoading] = useFonts({
-    "open-sans-bold": require("./assets/fonts/open-sans-bold.ttf"),
-    "open-sans": require("./assets/fonts/open-sans.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
   });
 
   if (!fontsLoading) {
@@ -25,6 +25,7 @@ export default function App() {
     setUserNumber(pickedNumber);
     setGameIsOver(false);
   }
+
   function gameOverHandler() {
     setGameIsOver(true);
   }

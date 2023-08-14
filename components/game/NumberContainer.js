@@ -8,6 +8,7 @@ function NumberContainer({ children }) {
     </View>
   );
 }
+
 export default NumberContainer;
 
 const styles = StyleSheet.create({
