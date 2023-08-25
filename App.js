@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
 import { LinearGradient } from "expo-linear-gradient";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
@@ -16,11 +15,6 @@ export default function App() {
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
   });
-
-  if (!fontsLoading) {
-    return <AppLoading />;
-  }
-
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber);
     setGameIsOver(false);
@@ -41,7 +35,9 @@ export default function App() {
   if (gameIsOver && userNumber) {
     screen = <GameOverScreen />;
   }
-
+  if (!fontsLoading) {
+    return null;
+  }
   return (
     <LinearGradient
       colors={[Colors.primary700, Colors.accent500]}
